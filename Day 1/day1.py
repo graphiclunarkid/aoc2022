@@ -4,13 +4,16 @@ with open('input.txt') as f:
 list = [i.rstrip() for i in input]
 
 totals = []
+elf_calories = 0
 
-sum = 0
 for l in list:
     if l != '':
-        sum += int(l)
+        elf_calories += int(l)
     else:
-        totals.append(sum)
-        sum = 0
+        totals.append(elf_calories)
+        elf_calories = 0
 
-print(max(totals))
+totals.sort(reverse=True)
+
+print("Part 1:", max(totals))
+print("Part 2:", sum(totals[:3]))
