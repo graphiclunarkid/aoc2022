@@ -6,6 +6,7 @@ games = [tuple(map(str, sub.split(' '))) for sub in cleanedInput]
 
 winConditions = [("A", "Y"), ("B", "Z"), ("C", "X")]
 drawConditions = [("A", "X"), ("B", "Y"), ("C", "Z")]
+loseConditions = [("A","Z"), ("B", "X"), ("C", "Y")]
 score = 0
 
 def getShapeScore(shape):
@@ -23,11 +24,14 @@ def getOutcomeScore(game):
         return 6
     elif game in drawConditions:
         return 3
-    else:
+    elif game in loseConditions:
         return 0
+    else:
+        raise Exception("Input Error")
 
 for game in games:
     score += getShapeScore(game[1])
     score += getOutcomeScore(game)
 
 print("Part 1: ", score)
+
