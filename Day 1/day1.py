@@ -1,19 +1,19 @@
 with open('input.txt') as f:
     input = f.readlines()
 
-list = [i.rstrip() for i in input]
+elves = [i.rstrip() for i in input]
 
-totals = []
+calorie_totals = []
 elf_calories = 0
 
-for l in list:
-    if l != '':
-        elf_calories += int(l)
+for calories in elves:
+    if calories != '':
+        elf_calories += int(calories)
     else:
-        totals.append(elf_calories)
+        calorie_totals.append(elf_calories)
         elf_calories = 0
 
-totals.sort(reverse=True)
+calorie_totals.sort(reverse=True)
 
-print("Part 1:", max(totals))
-print("Part 2:", sum(totals[:3]))
+print("Part 1:", max(calorie_totals))
+print("Part 2:", sum(calorie_totals[:3]))
