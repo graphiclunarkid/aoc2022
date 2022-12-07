@@ -1,6 +1,8 @@
 with open('input.txt') as f:
     input = f.readlines()
 
-games = [i.rstrip() for i in input]
+cleanedInput = [i.rstrip() for i in input]
 
-print(games)
+games = [tuple(map(str, sub.split(' '))) for sub in cleanedInput]
+
+print (games)
